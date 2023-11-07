@@ -1,4 +1,4 @@
-## Simple Linear Regression
+## Linear Regression: Univariate Case
 
 Suppose that we have data $\mathcal{D}:=\{(x_i,y_i):i \in \{1,\dots,n\}\}$ where $\{(x_i,y_i)\}_{i=1}^n$ are observed values of random variables $\{Y_i\}_{i=1}^n$ and $\{X_i\}_{i=1}^n$ respectively, satisfying the relationship
 ```{math}
@@ -29,7 +29,8 @@ which is a linear function of $x_i$. Thus, equation (1) defines a *linear regres
 ````{prf:definition}
 :label: def_sampleMeans
 
-Let $\mathcal{D}:=\{(x_i,y_i):i \in \{1,\dots,n\}\}$.
+Let $\mathcal{D}:=\{(x_i,y_i):i \in \{1,\dots,n\}\}$ and $\langle\cdot,\cdot\rangle:\mathbb{R}^2 \to \mathbb{R}$ be the canonical inner product on $\mathbb{R}$.
+
 -  We define the *sample means* as 
 
 $$
@@ -40,12 +41,12 @@ $$
 
 $$
 
-    S_{xx} = \sum_{i=1}^n (x_i-\bar{x})^2 \quad \text{ and } \quad  S_{yy} = \sum_{i=1}^n (y_i-\bar{y})^2.
+    S_{xx} = \lVert x-\bar{x}\rVert^2  \quad \text{ and } \quad  S_{yy} = \lVert y-\bar{y}\rVert^2.
 $$
 
 - We define the *sums of cross-products* as 
 
 $$
-    S_{xy} = \sum_{i=1}^n (x_i-\bar{x})(y_i-\bar{y}).
+    S_{xy} = \langle x-\bar{x}, y-\bar{y}\rangle.
 $$
 ````

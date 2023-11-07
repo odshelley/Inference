@@ -170,7 +170,7 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="simple-linear-regression.html">Simple Linear Regression</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="simple-linear-regression.html">Linear Regression: Univariate Case</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="OLS.html">Ordinary Least Squares (OLS)</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Best Linear Unbiased Estimators (BLUE)</a></li>
 </ul>
@@ -276,7 +276,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/BLUE.md" target="_blank"
+      <li><a href="_sources/BLUE.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -286,7 +286,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -372,7 +372,7 @@ document.write(`
                   
   <section id="best-linear-unbiased-estimators-blue">
 <h1>Best Linear Unbiased Estimators (BLUE)<a class="headerlink" href="#best-linear-unbiased-estimators-blue" title="Permalink to this heading">#</a></h1>
-<p>Note that in the least squares estimation of the model parameters, there was no statistical inference as such, we merely fitted a line to the data according to some criterion. We will now show that the <span class="math notranslate nohighlight">\((\hat{\beta}_0,\hat{\beta}_1)\)</span> as derived by OLS are optimal in a statistical sense.</p>
+<p>Note that in the least squares derivation of the model parameters, there was no statistical inference as such, we merely fitted a line to the data according to some criterion. We will now show that the <span class="math notranslate nohighlight">\(\hat{\beta}_0\)</span> and <span class="math notranslate nohighlight">\(\hat{\beta}_1\)</span> as derived by OLS are optimal in a statistical sense.</p>
 <p>In particular, we will derive unbiased linear estimators for <span class="math notranslate nohighlight">\(\beta_0\)</span> and <span class="math notranslate nohighlight">\(\beta_1\)</span> that have the smallest possible variance. Such an estimator will be called a <em>best</em> estimator. An estimator is linear if it is of the form</p>
 <div class="math notranslate nohighlight" id="equation-eq-estimator">
 <span class="eqno">(3)<a class="headerlink" href="#equation-eq-estimator" title="Permalink to this equation">#</a></span>\[    \sum_{i=1}^n d_i Y_i\]</div>
@@ -385,7 +385,7 @@ document.write(`
 <p>Note that</p>
 <div class="math notranslate nohighlight" id="equation-eq-variancecondition">
 <span class="eqno">(5)<a class="headerlink" href="#equation-eq-variancecondition" title="Permalink to this equation">#</a></span>\[     \text{Var}\left[ \sum_{i=1}^n d_i Y_i \right] = \sigma^2 \sum_{i=1}^n d_i^2.\]</div>
-<p>Thus, to find the BLUE estimator for <span class="math notranslate nohighlight">\(\beta_1\)</span> we must find <span class="math notranslate nohighlight">\(\{d_i\}_{i=1}^n\)</span> that satisfy <a class="reference internal" href="#equation-eq-betaconditions">(4)</a> and minimize <a class="reference internal" href="#equation-eq-variancecondition">(5)</a>. Similarly, to find the BLUE estimator for <span class="math notranslate nohighlight">\(\beta_0\)</span> we must find <span class="math notranslate nohighlight">\(\{d_i\}_{i=1}^n\)</span> that minimize <a class="reference internal" href="#equation-eq-variancecondition">(5)</a> and satisfies</p>
+<p>Thus, to find the BLUE estimator for <span class="math notranslate nohighlight">\(\beta_1\)</span> we must find <span class="math notranslate nohighlight">\(\{d_i\}_{i=1}^n\)</span> that satisfy <a class="reference internal" href="#equation-eq-betaconditions">(4)</a> and minimize <a class="reference internal" href="#equation-eq-variancecondition">(5)</a>. Similarly, to find the BLUE estimator for <span class="math notranslate nohighlight">\(\beta_0\)</span> we must find <span class="math notranslate nohighlight">\(\{d_i\}_{i=1}^n\)</span> that minimize <a class="reference internal" href="#equation-eq-variancecondition">(5)</a> and satisfy</p>
 <div class="math notranslate nohighlight" id="equation-eq-alphaconditions">
 <span class="eqno">(6)<a class="headerlink" href="#equation-eq-alphaconditions" title="Permalink to this equation">#</a></span>\[     \sum_{i=1}^n d_i = 1 \quad \text{ and } \quad  \sum_{i=1}^n x_i d_i = 0.\]</div>
 <p>One could use Lagrange multipliers to find the coefficients, but we will rely on the following lemma.  For a proof see [Lemma 11.2.7]<span id="id1">[<a class="reference internal" href="intro.html#id6" title="G. Casella and R.L. Berger. Statistical Inference. Duxbury advanced series in statistics and decision sciences. Thomson Learning, 2002. ISBN 978-0-534-24312-8.">Casella and Berger, 2002</a>]</span>.</p>
@@ -399,8 +399,7 @@ document.write(`
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(\bar{v}_c=\frac{\sum c_i v_i}{ \sum c_i }\)</span>. The maximum is attained at any <span class="math notranslate nohighlight">\(\mathbf{a}\)</span> of the form <span class="math notranslate nohighlight">\(a_i=K c_i\left(v_i-\right.\)</span> <span class="math notranslate nohighlight">\(\left.\bar{v}_c\right)\)</span>, where <span class="math notranslate nohighlight">\(K\)</span> is a nonzero constant.</p>
 </section>
-</div><p>We may now state the following</p>
-<div class="proof proposition admonition" id="prop_blue">
+</div><div class="proof proposition admonition" id="prop_blue">
 <p class="admonition-title"><span class="caption-number">Proposition 1 </span></p>
 <section class="proposition-content" id="proof-content">
 <p>The BLUE estimators for <span class="math notranslate nohighlight">\(\beta_1\)</span> and <span class="math notranslate nohighlight">\(\beta_0\)</span> are given by</p>
@@ -443,7 +442,6 @@ document.write(`
 <div class="math notranslate nohighlight">
 \[    \sum_{i=1}^n d_i Y_i = \sum_{i=1}^n \left(\frac{1}{n} - \frac{ \bar{x}(x_i-\bar{x}) }{S_{xx}} \right)Y_i = \bar{Y} - \hat{\beta}_1\bar{x}.\]</div>
 </div>
-<!-- \frac{\left(\sum_{i=1}^n \frac{\tilde{d}_i}{x_i}\right)^2}{\sum_{i=1}^n \frac{\tilde{d}_i^2}{x_i^2}}  -->
 </section>
 
     <script type="text/x-thebe-config">
