@@ -276,7 +276,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/BLUE.md" target="_blank"
+      <li><a href="_sources/BLUE.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -286,7 +286,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -372,7 +372,7 @@ document.write(`
                   
   <section id="best-linear-unbiased-estimators-blue">
 <h1>Best Linear Unbiased Estimators (BLUE)<a class="headerlink" href="#best-linear-unbiased-estimators-blue" title="Permalink to this heading">#</a></h1>
-<p>Note that in the least squares estimation of the model parameters, there was no statistical inference as such, we merely fitted a line to the data according to some criterion. We will now show that the <span class="math notranslate nohighlight">\((\hat{\beta}_0,\hat{\beta}_1)\)</span> as derived by OLS are optimal in a statistical sense.</p>
+<p>Note that in the least squares derivation of the model parameters, there was no statistical inference as such, we merely fitted a line to the data according to some criterion. We will now show that the <span class="math notranslate nohighlight">\(\hat{\beta}_0\)</span> and <span class="math notranslate nohighlight">\(\hat{\beta}_1\)</span> as derived by OLS are optimal in a statistical sense.</p>
 <p>In particular, we will derive unbiased linear estimators for <span class="math notranslate nohighlight">\(\beta_0\)</span> and <span class="math notranslate nohighlight">\(\beta_1\)</span> that have the smallest possible variance. Such an estimator will be called a <em>best</em> estimator. An estimator is linear if it is of the form</p>
 <div class="math notranslate nohighlight" id="equation-eq-estimator">
 <span class="eqno">(3)<a class="headerlink" href="#equation-eq-estimator" title="Permalink to this equation">#</a></span>\[    \sum_{i=1}^n d_i Y_i\]</div>
@@ -385,7 +385,7 @@ document.write(`
 <p>Note that</p>
 <div class="math notranslate nohighlight" id="equation-eq-variancecondition">
 <span class="eqno">(5)<a class="headerlink" href="#equation-eq-variancecondition" title="Permalink to this equation">#</a></span>\[     \text{Var}\left[ \sum_{i=1}^n d_i Y_i \right] = \sigma^2 \sum_{i=1}^n d_i^2.\]</div>
-<p>Thus, to find the BLUE estimator for <span class="math notranslate nohighlight">\(\beta_1\)</span> we must find <span class="math notranslate nohighlight">\(\{d_i\}_{i=1}^n\)</span> that satisfy <a class="reference internal" href="#equation-eq-betaconditions">(4)</a> and minimize <a class="reference internal" href="#equation-eq-variancecondition">(5)</a>. Similarly, to find the BLUE estimator for <span class="math notranslate nohighlight">\(\beta_0\)</span> we must find <span class="math notranslate nohighlight">\(\{d_i\}_{i=1}^n\)</span> that minimize <a class="reference internal" href="#equation-eq-variancecondition">(5)</a> and satisfies</p>
+<p>Thus, to find the BLUE estimator for <span class="math notranslate nohighlight">\(\beta_1\)</span> we must find <span class="math notranslate nohighlight">\(\{d_i\}_{i=1}^n\)</span> that satisfy <a class="reference internal" href="#equation-eq-betaconditions">(4)</a> and minimize <a class="reference internal" href="#equation-eq-variancecondition">(5)</a>. Similarly, to find the BLUE estimator for <span class="math notranslate nohighlight">\(\beta_0\)</span> we must find <span class="math notranslate nohighlight">\(\{d_i\}_{i=1}^n\)</span> that minimize <a class="reference internal" href="#equation-eq-variancecondition">(5)</a> and satisfy</p>
 <div class="math notranslate nohighlight" id="equation-eq-alphaconditions">
 <span class="eqno">(6)<a class="headerlink" href="#equation-eq-alphaconditions" title="Permalink to this equation">#</a></span>\[     \sum_{i=1}^n d_i = 1 \quad \text{ and } \quad  \sum_{i=1}^n x_i d_i = 0.\]</div>
 <p>One could use Lagrange multipliers to find the coefficients, but we will rely on the following lemma.  For a proof see [Lemma 11.2.7]<span id="id1">[<a class="reference internal" href="intro.html#id6" title="G. Casella and R.L. Berger. Statistical Inference. Duxbury advanced series in statistics and decision sciences. Thomson Learning, 2002. ISBN 978-0-534-24312-8.">Casella and Berger, 2002</a>]</span>.</p>
@@ -403,7 +403,7 @@ document.write(`
 <div class="proof proposition admonition" id="prop_blue">
 <p class="admonition-title"><span class="caption-number">Proposition 1 </span></p>
 <section class="proposition-content" id="proof-content">
-<p>The BLUE for <span class="math notranslate nohighlight">\(\beta_1\)</span> and <span class="math notranslate nohighlight">\(\beta_0\)</span> are given by</p>
+<p>The BLUE estimators for <span class="math notranslate nohighlight">\(\beta_1\)</span> and <span class="math notranslate nohighlight">\(\beta_0\)</span> are given by</p>
 <div class="math notranslate nohighlight">
 \[
 \begin{aligned}
@@ -422,10 +422,10 @@ document.write(`
 <p>whence <span class="math notranslate nohighlight">\((d_1,\dots,d_n)\)</span> satisfies <a class="reference internal" href="#equation-eq-betaconditions">(4)</a> and <a class="reference internal" href="#equation-eq-variancecondition">(5)</a>. We may conclude that <span class="math notranslate nohighlight">\(\sum_{i=1}^n d_i Y_i\)</span> is the BLUE estimator for <span class="math notranslate nohighlight">\(\beta_1\)</span> where</p>
 <div class="math notranslate nohighlight">
 \[    \sum_{i=1}^n d_i Y_i = \sum_{i=1}^n \frac{(x_i - \bar{x})Y_i}{S_{xx}} = \frac{S_xY}{S_{xx}} = \hat{\beta}_1.\]</div>
-<p><span class="math notranslate nohighlight">\(\quad\)</span> We now turn to calculating <span class="math notranslate nohighlight">\(\hat{\beta}_o\)</span>. Once again, we fix <span class="math notranslate nohighlight">\(K\)</span> to be a non-zero constant and note by <a class="reference internal" href="#lemma_casella">Lemma 1</a> that  <span class="math notranslate nohighlight">\((\tilde{d}_1,\dots,\tilde{d}_n)\)</span> where</p>
+<p><span class="math notranslate nohighlight">\(\quad\)</span> We now turn to calculating <span class="math notranslate nohighlight">\(\hat{\beta}_o\)</span>. Fix <span class="math notranslate nohighlight">\(K\)</span> to be a non-zero constant and define</p>
 <div class="math notranslate nohighlight">
 \[    \tilde{d}_i := d_ix_i := K x_i^2 \left( \frac{1}{x_i} -  \frac{\sum_{i=1}^n x_i^2\left(\frac{1}{x_i}\right)}{\sum_{i=1}^n x_i^2} \right)\]</div>
-<p>maximizes</p>
+<p>Then by <a class="reference internal" href="#lemma_casella">Lemma 1</a>,  <span class="math notranslate nohighlight">\((\tilde{d}_1,\dots,\tilde{d}_n)\)</span> maximizes</p>
 <div class="math notranslate nohighlight" id="equation-eq-tomax2">
 <span class="eqno">(8)<a class="headerlink" href="#equation-eq-tomax2" title="Permalink to this equation">#</a></span>\[    \frac{\left(\sum_{i=1}^n \frac{\tilde{d}_i}{x_i}\right)^2}{\sum_{i=1}^n \frac{\tilde{d}_i^2}{x_i^2}} \]</div>
 <p>among all <span class="math notranslate nohighlight">\((\tilde{d}_1,\dots,\tilde{d}_n)\)</span> that satisfy <span class="math notranslate nohighlight">\(\sum_{i=1}^n \tilde{d}_i=0\)</span>. In particular, we note that by choosing</p>
@@ -434,16 +434,15 @@ document.write(`
 <p>it follows that</p>
 <div class="math notranslate nohighlight">
 \[\begin{aligned}
-    d_i &amp;= K \left(1 -  \frac{n \bar{x}x_i }{\sum_{i=1}^n x_i^2} \right) = \frac{1}{n} + \frac{\bar{x}^2}{S_{xx}} - \frac{ \bar{x}x_i }{S_{xx}} = \frac{1}{n} - \frac{ \bar{x}(x_i-\bar{x}) }{S_{xx}} 
+    d_i &amp;= K \left(1 -  \frac{n \bar{x}x_i }{\sum_{i=1}^n x_i^2} \right) = \frac{1}{n} + \frac{\bar{x}^2}{S_{xx}} - \frac{ \bar{x}x_i }{S_{xx}} = \frac{1}{n} - \frac{ \bar{x}(x_i-\bar{x}) }{S_{xx}}.
 \end{aligned}\]</div>
-<p>and <span class="math notranslate nohighlight">\(\sum_{i=1}^n d_i = 1\)</span>. In this case <a class="reference internal" href="#equation-eq-tomax2">(8)</a> becomes</p>
+<p>Thus, with this choice of <span class="math notranslate nohighlight">\(K\)</span> we have <span class="math notranslate nohighlight">\(\sum_{i=1}^n d_i = 1\)</span> and <a class="reference internal" href="#equation-eq-tomax2">(8)</a> becomes</p>
 <div class="math notranslate nohighlight">
-\[    \frac{\left(\sum_{i=1}^n d_i\right)^2}{\sum_{i=1}^n \tilde{d}_i^2} = \frac{1}{\sum_{i=1}^n \tilde{d}_i^2},\]</div>
+\[    \frac{\left(\sum_{i=1}^n d_i\right)^2}{\sum_{i=1}^n {d}_i^2} = \frac{1}{\sum_{i=1}^n {d}_i^2},\]</div>
 <p>whence <span class="math notranslate nohighlight">\((d_1,\dots,d_n)\)</span> satisfies <a class="reference internal" href="#equation-eq-alphaconditions">(6)</a> and <a class="reference internal" href="#equation-eq-variancecondition">(5)</a>. We may conclude that <span class="math notranslate nohighlight">\(\sum_{i=1}^n d_i Y_i\)</span> is the BLUE estimator for <span class="math notranslate nohighlight">\(\beta_0\)</span> where</p>
 <div class="math notranslate nohighlight">
 \[    \sum_{i=1}^n d_i Y_i = \sum_{i=1}^n \left(\frac{1}{n} - \frac{ \bar{x}(x_i-\bar{x}) }{S_{xx}} \right)Y_i = \bar{Y} - \hat{\beta}_1\bar{x}.\]</div>
 </div>
-<!-- \frac{\left(\sum_{i=1}^n \frac{\tilde{d}_i}{x_i}\right)^2}{\sum_{i=1}^n \frac{\tilde{d}_i^2}{x_i^2}}  -->
 </section>
 
     <script type="text/x-thebe-config">

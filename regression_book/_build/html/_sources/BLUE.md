@@ -47,7 +47,7 @@ We may now state the following
 ````{prf:proposition}
 :label: prop_blue 
 
-The BLUE for $\beta_1$ and $\beta_0$ are given by 
+The BLUE estimators for $\beta_1$ and $\beta_0$ are given by 
 
 $$
 \begin{aligned}
@@ -77,12 +77,12 @@ whence $(d_1,\dots,d_n)$ satisfies {eq}`eq_betaConditions` and {eq}`eq_varianceC
     \sum_{i=1}^n d_i Y_i = \sum_{i=1}^n \frac{(x_i - \bar{x})Y_i}{S_{xx}} = \frac{S_xY}{S_{xx}} = \hat{\beta}_1.
 ```
 
-$\quad$ We now turn to calculating $\hat{\beta}_o$. Once again, we fix $K$ to be a non-zero constant and note by {prf:ref}`lemma_casella` that  $(\tilde{d}_1,\dots,\tilde{d}_n)$ where
+$\quad$ We now turn to calculating $\hat{\beta}_o$. Fix $K$ to be a non-zero constant and define 
 
 ```{math}
     \tilde{d}_i := d_ix_i := K x_i^2 \left( \frac{1}{x_i} -  \frac{\sum_{i=1}^n x_i^2\left(\frac{1}{x_i}\right)}{\sum_{i=1}^n x_i^2} \right)
 ```
-maximizes 
+Then by {prf:ref}`lemma_casella`,  $(\tilde{d}_1,\dots,\tilde{d}_n)$ maximizes 
 
 ```{math}
 :label: eq_toMax2
@@ -96,12 +96,12 @@ among all $(\tilde{d}_1,\dots,\tilde{d}_n)$ that satisfy $\sum_{i=1}^n \tilde{d}
 it follows that 
 ```{math}
 \begin{aligned}
-    d_i &= K \left(1 -  \frac{n \bar{x}x_i }{\sum_{i=1}^n x_i^2} \right) = \frac{1}{n} + \frac{\bar{x}^2}{S_{xx}} - \frac{ \bar{x}x_i }{S_{xx}} = \frac{1}{n} - \frac{ \bar{x}(x_i-\bar{x}) }{S_{xx}} 
+    d_i &= K \left(1 -  \frac{n \bar{x}x_i }{\sum_{i=1}^n x_i^2} \right) = \frac{1}{n} + \frac{\bar{x}^2}{S_{xx}} - \frac{ \bar{x}x_i }{S_{xx}} = \frac{1}{n} - \frac{ \bar{x}(x_i-\bar{x}) }{S_{xx}}.
 \end{aligned}
 ``` 
-and $\sum_{i=1}^n d_i = 1$. In this case {eq}`eq_toMax2` becomes
+Thus, with this choice of $K$ we have $\sum_{i=1}^n d_i = 1$ and {eq}`eq_toMax2` becomes
 ```{math}
-    \frac{\left(\sum_{i=1}^n d_i\right)^2}{\sum_{i=1}^n \tilde{d}_i^2} = \frac{1}{\sum_{i=1}^n \tilde{d}_i^2},
+    \frac{\left(\sum_{i=1}^n d_i\right)^2}{\sum_{i=1}^n {d}_i^2} = \frac{1}{\sum_{i=1}^n {d}_i^2},
 ```
 whence $(d_1,\dots,d_n)$ satisfies {eq}`eq_alphaConditions` and {eq}`eq_varianceCondition`. We may conclude that $\sum_{i=1}^n d_i Y_i$ is the BLUE estimator for $\beta_0$ where
 
