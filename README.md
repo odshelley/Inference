@@ -1,7 +1,7 @@
 # Infernece
 
-This contains some brief material on inference techniques.
+This repositry will contain some material on statistical inference techniques.
 
-At the moment this is a short jupyter book on linear-regression, as can be find via:
+At the moment this comprises of a jupyter book on [linear-regression](https://odshelley.github.io/Infernece/). 
 
-**https://odshelley.github.io/Infernece/**
+
